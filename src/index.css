@@ -1,11 +1,54 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* body {
+  font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url("./Components/Assets/Computer\ and\ account\ login\ and\ password\ form\ page\ on\ screen_\ Sign\ in\ to\ account\,\ user\ authorization\,\ login\ authentication\ page\ concept.\ flat\ vector\ illustration");
+  background-repeat:no-repeat;
+  background-position: center;
+  background-size: 80vw;
+} */
+
+body {
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative; /* Add this to position the pseudo-element correctly */
+  /* z-index: 1; */
 }
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("./Components/Assets/wp3272702--wallpapers.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.8;
+  /* filter: brightness(0.7); */
+  z-index: -1; /* Ensure the pseudo-element is behind the content */
+}
+
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
