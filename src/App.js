@@ -6,7 +6,7 @@ function App() {
   return (
 
     <div className="App">
-      <Router basename="/loginSignUp">
+      <Router>
         <Switch>
           <Route path="/" exact component={LoginForm} />
           <Route path="/signup" component={SignupForm} />
