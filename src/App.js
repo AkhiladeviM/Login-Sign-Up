@@ -6,6 +6,7 @@ function App() {
   return (
 
     <div className="App">
+      <link rel="stylesheet" href={`${process.env.PUBLIC_URL}/main.5039ef67.css`} />
       <Router>
         <Switch>
           <Route path="/" exact component={LoginForm} />
