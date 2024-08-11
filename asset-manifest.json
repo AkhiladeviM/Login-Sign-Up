@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/loginSignUp/static/css/main.5039ef67.css",
+    "main.js": "/loginSignUp/static/js/main.28c9d7dd.js",
+    "static/js/453.ed3810f9.chunk.js": "/loginSignUp/static/js/453.ed3810f9.chunk.js",
+    "static/media/wp3272702--wallpapers.jpg": "/loginSignUp/static/media/wp3272702--wallpapers.dd180a06ee0671267fce.jpg",
+    "index.html": "/loginSignUp/index.html",
+    "main.5039ef67.css.map": "/loginSignUp/static/css/main.5039ef67.css.map",
+    "main.28c9d7dd.js.map": "/loginSignUp/static/js/main.28c9d7dd.js.map",
+    "453.ed3810f9.chunk.js.map": "/loginSignUp/static/js/453.ed3810f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5039ef67.css",
+    "static/js/main.28c9d7dd.js"
+  ]
+}
