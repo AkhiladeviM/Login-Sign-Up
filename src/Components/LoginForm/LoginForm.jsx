@@ -3,6 +3,7 @@ import "./LoginForm.css";
 import { FaLock } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { useState } from 'react';
+import toast from "react-hot-toast";
 import { Link } from 'react-router-dom/cjs/react-router-dom';
 
 const LoginForm = () => {
@@ -64,30 +65,43 @@ const LoginForm = () => {
     }
 
     const onLogin = () => {
+        let validationFlag = 0;
         let validationDetails = { ...validLoginDetails };
         if (loginDetails.email === "") {
+            validationFlag = 1;
             validationDetails.email = "Email is Required"
         } else {
             validationDetails.email = ""
         }
         if (loginDetails.password === "") {
+            validationFlag = 1;
             validationDetails.password = "Password is Required"
         } else {
             validationDetails.password = ""
         }
         setValidLoginDetails(validationDetails);
+
+        if (validationFlag === 1) return false
+        else {
+            toast.success('Logged in Successfully!');
+            setLoginDetails({
+                email: "",
+                password: ""
+            });
+        }
+
     }
 
     return (
         <div className="wrapper">
             <h1>Login</h1>
             <div className="input-box">
-                <input type='text' placeholder='Email' onChange={(e) => { handleInputChange(e, "email") }}></input>
+                <input type='text' value={loginDetails.email} placeholder='Email' onChange={(e) => { handleInputChange(e, "email") }}></input>
                 <MdEmail className='icon' />
                 <p>{validLoginDetails.email}</p>
             </div>
             <div className="input-box">
-                <input type='password' placeholder='Password' onChange={(e) => { handleInputChange(e, "password") }}></input>
+                <input type='password' value={loginDetails.password} placeholder='Password' onChange={(e) => { handleInputChange(e, "password") }}></input>
                 <FaLock className='icon' />
                 <p>{validLoginDetails.password}</p>
             </div>

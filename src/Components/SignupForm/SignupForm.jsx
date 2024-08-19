@@ -4,6 +4,7 @@ import { FaUser, FaLock } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { useState } from 'react';
+import toast from "react-hot-toast";
 import { Link } from 'react-router-dom/cjs/react-router-dom';
 import { Tooltip as ReactTooltip } from 'react-tooltip';
 
@@ -105,59 +106,76 @@ const SignupForm = () => {
     }
 
     const onLogin = () => {
+        let validationFlag = 0;
         let details = { ...validSignUpDetails };
         if (signUpDetails.userName === "") {
             details.userName = "UserName is Required"
+            validationFlag = 1;
         } else {
             details.userName = ""
         }
 
         if (signUpDetails.email === "") {
             details.email = "Email is Required"
+            validationFlag = 1;
         } else {
             details.email = ""
         }
 
         if (signUpDetails.password === "") {
             details.password = "Password is Required"
+            validationFlag = 1;
         } else {
             details.password = ""
         }
 
         if (signUpDetails.confirmpassward === "") {
             details.confirmpassward = "Confirm Password is Required"
+            validationFlag = 1;
         } else {
             if (signUpDetails.password != signUpDetails.confirmpassward) {
                 details.confirmpassward = "Password and Comfirm Password must be same"
+                validationFlag = 1;
             } else {
                 details.confirmpassward = ""
             }
         }
 
         setValidSignUpDetails(details);
+
+        if (validationFlag === 1) return false
+        else {
+            toast.success('Signed Up Successfully!');
+            setSignUpDetails({
+                userName: "",
+                email: "",
+                password: "",
+                confirmpassward: ""
+            });
+        }
     }
 
     return (
         <div className="sign-wrapper">
             <h1>Sign Up</h1>
             <div className="input-box">
-                <input type='text' placeholder='Username' onChange={(e) => { handleInputChange(e, "userName") }}></input>
+                <input type='text' value={signUpDetails.userName} placeholder='Username' onChange={(e) => { handleInputChange(e, "userName") }}></input>
                 <FaUser className='icon' />
                 <p>{validSignUpDetails.userName}</p>
             </div>
             <div className="input-box">
-                <input type='text' placeholder='Email' onChange={(e) => { handleInputChange(e, "email") }}></input>
+                <input type='text' value={signUpDetails.email} placeholder='Email' onChange={(e) => { handleInputChange(e, "email") }}></input>
                 <MdEmail className='icon' />
                 <p>{validSignUpDetails.email}</p>
             </div>
             <div className="input-box">
-                <input type='password' placeholder='Password' onChange={(e) => { handleInputChange(e, "password") }}></input>
+                <input type='password' value={signUpDetails.password} placeholder='Password' onChange={(e) => { handleInputChange(e, "password") }}></input>
                 <FaLock className='icon' id="tooltip-button" />
                 <p>{validSignUpDetails.password}</p>
                 <ReactTooltip anchorId="tooltip-button" className="custom-tooltip" place="top" content="Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)." />
             </div>
             <div className="input-box">
-                <input type='password' placeholder='Confirm Password' onChange={(e) => { handleInputChange(e, "confirmPassword") }}></input>
+                <input type='password' value={signUpDetails.confirmpassward} placeholder='Confirm Password' onChange={(e) => { handleInputChange(e, "confirmPassword") }}></input>
                 <RiLockPasswordFill className='icon' />
                 <p>{validSignUpDetails.confirmpassward}</p>
             </div>
