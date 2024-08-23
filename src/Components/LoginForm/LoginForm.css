@@ -1,12 +1,21 @@
 .wrapper {
     width: 420px;
     background-color: transparent;
-    border: 3px solid rgba(28,57,112,255);
+    border: 3px solid rgba(28, 57, 112, 1);
     box-shadow: 0 0 50px rgba(4, 2, 109, 0.2);
     backdrop-filter: blur(15px);
     color: white;
     border-radius: 10px;
     padding: 30px 30px;
+    @media screen and (max-width: 700px) {
+        width: 350px;
+    };
+    @media screen and (max-width: 600px) {
+        width: 300px;
+    }
+    @media screen and (max-width: 350px) {
+        width: 280px;
+    }
 }
 
 .wrapper h1 {
