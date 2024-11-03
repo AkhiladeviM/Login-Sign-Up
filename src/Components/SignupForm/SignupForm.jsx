@@ -108,6 +108,13 @@ const SignupForm = () => {
     const onLogin = () => {
         let validationFlag = 0;
         let details = { ...validSignUpDetails };
+
+        if (validSignUpDetails.userName !== "") return false
+        if (validSignUpDetails.email !== "") return false
+        if (validSignUpDetails.password !== "") return false
+        if (validSignUpDetails.confirmpassward !== "") return false
+
+
         if (signUpDetails.userName === "") {
             details.userName = "UserName is Required"
             validationFlag = 1;

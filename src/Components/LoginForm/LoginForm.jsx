@@ -67,6 +67,10 @@ const LoginForm = () => {
     const onLogin = () => {
         let validationFlag = 0;
         let validationDetails = { ...validLoginDetails };
+
+        if(validLoginDetails.email !== "") return false
+        if(validLoginDetails.password !== "") return false
+
         if (loginDetails.email === "") {
             validationFlag = 1;
             validationDetails.email = "Email is Required"
@@ -81,6 +85,7 @@ const LoginForm = () => {
         }
         setValidLoginDetails(validationDetails);
 
+        
         if (validationFlag === 1) return false
         else {
             toast.success('Logged in Successfully!');
